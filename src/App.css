@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+.App-header {
+  color: rgb(12, 12, 12);
+}
+
+.App-link {
+  color: rgb(98, 168, 165);
+  font-weight: 600;
+}
+
+.App-logo {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .App {
+    margin: 10px 5px;
+  }
+  .App-logo {
+    width: 200px;
+    /* margin-top: 10px; */
+  }
+}
