@@ -19,7 +19,7 @@ function App() {
           , is open source in{" "}
           <a
             className="App-link"
-            href="https://github.com/Naruf"
+            href="https://github.com/Naruf/dictionary-react-project"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,7 +28,7 @@ function App() {
           and hosted in{" "}
           <a
             className="App-link"
-            href="https://github.com/Naruf"
+            href="https://vercel.com/narufs-projects/dictionary-react-project"
             target="_blank"
             rel="noopener noreferrer"
           >
