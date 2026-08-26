@@ -6,12 +6,6 @@
 .App-header {
   color: rgb(12, 12, 12);
 }
-
-.App-link {
-  color: rgb(98, 168, 165);
-  font-weight: 600;
-}
-
 .App-logo {
   width: 300px;
   display: block;
@@ -20,7 +14,7 @@
 
 @media (max-width: 600px) {
   .App {
-    margin: 10px 5px;
+    margin: 15px 8px;
   }
   .App-logo {
     width: 200px;
