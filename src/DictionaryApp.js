@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function DictionaryApp() {
+  let [targetWord, setTargetWord] = useState("");
+  function Search(event) {
+    event.preventDefault();
+    alert(`The search target word is: ${targetWord}`);
+  }
+  function handleChange(event) {
+    console.log(event.target.value);
+    setTargetWord(event.target.value);
+  }
+
   return (
     <div className="DictionaryApp">
-      <form className="box-size d-flex m-auto p-4 border rounded border-none shadow bg-light text-start">
+      <form
+        className="box-size d-flex m-auto p-4 border rounded border-none shadow bg-light text-start"
+        onSubmit={Search}
+      >
         <div className="row">
           <div clasName="col-12">
             <label for="word" className=" fs-4 fw-semibold pb-3">
@@ -14,6 +27,7 @@ export default function DictionaryApp() {
             <div className="search-block ">
               <input
                 className="search-input p-3 w-100 border rounded "
+                onChange={handleChange}
                 placeholder="Enter a word o phrase..."
                 required
                 type="text"
@@ -26,7 +40,7 @@ export default function DictionaryApp() {
         </div>
       </form>
 
-      <section>
+      {/* <section>
         <div className="word-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
           <div className="row">
             <div className="col-12">
@@ -111,7 +125,7 @@ export default function DictionaryApp() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
