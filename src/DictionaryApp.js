@@ -1,13 +1,51 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function DictionaryApp() {
   let [targetWord, setTargetWord] = useState("");
-  function Search(event) {
-    event.preventDefault();
-    alert(`The search target word is: ${targetWord}`);
+
+  function apiResponse(response) {
+    console.log(response.data.word);
+    console.log(response.data.phonetic);
+    console.log(response.data.meanings[0].definition);
+
+    // return (
+    //   <div className="ApiResponse">
+    //     <div className="word-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
+    //       <div className="row">
+    //         <div className="col-12">
+    //           <div className="row">
+    //             {/* <div className="col-4 pronunciation">
+    //                 <a href="#" target="_blank" rel="noopener noreferrer">
+    //                   🔉
+    //                 </a>
+    //               </div> */}
+    //             <div className="col-4 word">
+    //               <div className="word">{response.data.word}</div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //         <div className="col-12">
+    //           <div className="phonetics">{response.data.phonetic}</div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
+
+  function apiCall() {
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${targetWord}&key=5d1t76143df0603191aa4604b0b5b1oe`;
+    axios.get(apiUrl).then(apiResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(`the key word is: ${targetWord}`);
+    apiCall();
+  }
+
   function handleChange(event) {
-    console.log(event.target.value);
     setTargetWord(event.target.value);
   }
 
@@ -15,11 +53,11 @@ export default function DictionaryApp() {
     <div className="DictionaryApp">
       <form
         className="box-size d-flex m-auto p-4 border rounded border-none shadow bg-light text-start"
-        onSubmit={Search}
+        onSubmit={handleSubmit}
       >
         <div className="row">
-          <div clasName="col-12">
-            <label for="word" className=" fs-4 fw-semibold pb-3">
+          <div className="col-12">
+            <label className="fs-4 fw-semibold pb-3">
               What word or phrase do you need help with?
             </label>
           </div>
@@ -40,33 +78,9 @@ export default function DictionaryApp() {
         </div>
       </form>
 
-      {/* <section>
-        <div className="word-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
-          <div className="row">
-            <div className="col-12">
-              <div className="row">
-                <div className="col-4 pronunciation">
-                  <a
-                    href="https://www.youtube.com/watch?v=tF2LL61Ainc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    🔉
-                  </a>
-                </div>
-                <div className="col-4 word">
-                  <div className="word">MESA</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-12">
-              <div className="phonetics">/'meɪsə/</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section></section>
 
-      <section>
+      {/* <section>
         <div className="definition-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
           <div className="row">
             <div className="noun-definition col-12">
@@ -83,9 +97,9 @@ export default function DictionaryApp() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section>
+      {/* <section>
         <div className="gallery box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light ">
           <div className="photos gap-3 m-auto image-fluid d-sm-flex">
             <div className="photo p-2">
