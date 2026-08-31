@@ -1,37 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ApiResults from "./ApiResults";
 
 export default function DictionaryApp() {
-  let [targetWord, setTargetWord] = useState("");
+  let [targetWord, setTargetWord] = useState();
+  let [results, setResults] = useState("");
 
   function apiResponse(response) {
-    console.log(response.data.word);
-    console.log(response.data.phonetic);
-    console.log(response.data.meanings[0].definition);
-
-    // return (
-    //   <div className="ApiResponse">
-    //     <div className="word-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
-    //       <div className="row">
-    //         <div className="col-12">
-    //           <div className="row">
-    //             {/* <div className="col-4 pronunciation">
-    //                 <a href="#" target="_blank" rel="noopener noreferrer">
-    //                   🔉
-    //                 </a>
-    //               </div> */}
-    //             <div className="col-4 word">
-    //               <div className="word">{response.data.word}</div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //         <div className="col-12">
-    //           <div className="phonetics">{response.data.phonetic}</div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
+    setResults(response.data);
+    console.log(response.data);
   }
 
   function apiCall() {
@@ -41,7 +18,6 @@ export default function DictionaryApp() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    alert(`the key word is: ${targetWord}`);
     apiCall();
   }
 
@@ -78,26 +54,9 @@ export default function DictionaryApp() {
         </div>
       </form>
 
-      <section></section>
-
-      {/* <section>
-        <div className="definition-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
-          <div className="row">
-            <div className="noun-definition col-12">
-              <div className="api-definition">noun. {} </div>
-            </div>
-            <div className="verb-definition col-12">
-              <div className="word">verb. {} </div>
-            </div>
-            <div className="adjective-definition col-12">
-              <div className="word">adjective. {} </div>
-            </div>
-            <div className="synonyms col-12">
-              <div className="word">synonyms. {} </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
+      <section>
+        <ApiResults results={results} />
+      </section>
 
       {/* <section>
         <div className="gallery box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light ">
