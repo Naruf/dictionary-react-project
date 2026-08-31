@@ -3,7 +3,7 @@ import axios from "axios";
 import ApiResults from "./ApiResults";
 
 export default function DictionaryApp() {
-  let [targetWord, setTargetWord] = useState();
+  let [targetWord, setTargetWord] = useState("");
   let [results, setResults] = useState("");
 
   function apiResponse(response) {
@@ -28,12 +28,12 @@ export default function DictionaryApp() {
   return (
     <div className="DictionaryApp">
       <form
-        className="box-size d-flex m-auto p-4 border rounded border-none shadow bg-light text-start"
+        className="box-size d-flex m-auto p-4 pb-2 border rounded border-none shadow bg-light text-start"
         onSubmit={handleSubmit}
       >
         <div className="row">
           <div className="col-12">
-            <label className="fs-4 fw-semibold pb-3">
+            <label className="fs-4 fw-semibold pb-3 ps-2">
               What word or phrase do you need help with?
             </label>
           </div>
@@ -46,7 +46,7 @@ export default function DictionaryApp() {
                 required
                 type="text"
               />
-              <p className="search-example">
+              <p className="search-example ps-2 ">
                 i.e. paris, wine, yoga, coding...
               </p>
             </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Definitions from "./Definitions";
 
 export default function ApiResults({ results }) {
   let meanings = results.meanings;
@@ -6,7 +7,7 @@ export default function ApiResults({ results }) {
   if (results) {
     return (
       <div className="ApiResults">
-        <div className="word-block box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light text-start">
+        <div className="word-block box-size d-flex m-auto p-4 pt-3 mt-2 mb-2 border rounded border-none shadow bg-light text-start ">
           <div className="row">
             <div className="col-12">
               <div className="word ps-2 fs-2 fw-semibold">{results.word}</div>
@@ -24,10 +25,7 @@ export default function ApiResults({ results }) {
                 {meanings.map(function (meaning, index) {
                   return (
                     <div className="p-2" key={index}>
-                      <span className="text-primary">
-                        {meaning.partOfSpeech}.
-                      </span>{" "}
-                      <span> - {meaning.definition}</span>
+                      <Definitions meaning={meaning} />
                     </div>
                   );
                 })}

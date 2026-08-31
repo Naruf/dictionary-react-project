@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(226, 204, 147);
+  background-size: cover;
 }
 /* @media (max-width: 600px) {
   body {
