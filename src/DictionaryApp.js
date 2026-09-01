@@ -20,6 +20,7 @@ export default function DictionaryApp({ defaultWord }) {
   function handleSubmit(event) {
     event.preventDefault();
     apiCall();
+    document.activeElement.blur();
   }
 
   function handleChange(event) {
