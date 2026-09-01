@@ -13,7 +13,19 @@ export default function ApiResults({ results }) {
               <div className="word ps-2 fs-2 fw-semibold">{results.word}</div>
             </div>
             <div className="col-12">
-              <div className="phonetics ps-3">/{results.phonetic}/</div>
+              <div className="phonetics p-2 ps-3">/{results.phonetic}/</div>
+            </div>
+            <div className="col-12">
+              <div className="audio p-2 ps-3">
+                <a
+                  className="text-decoration-none ps-2"
+                  href={`https://dictionary.cambridge.org/pronunciation/english/${results.word}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fa-solid fa-volume-high"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

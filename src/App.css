@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
   /* max-height: 100em; */
   min-height: 65em;
@@ -10,7 +10,7 @@
   color: rgb(12, 12, 12);
 }
 .App-logo {
-  width: 300px;
+  width: 200px;
   display: block;
   margin: auto;
 }
@@ -19,21 +19,30 @@
   padding: 10px 0;
 }
 .box-size {
-  max-width: 50%;
+  max-width: 800px;
+  padding: 10px;
+}
+.title {
+  font-size: 50px;
+  padding: 15px;
+  margin: 15px 5px 40px 5px;
 }
 
 @media (max-width: 800px) {
   .App {
     padding: 15px 8px;
-    min-height: 55em;
+    min-height: 60em;
   }
   .App-logo {
     width: 200px;
-    padding: 20px 10px;
+    padding: 20px 10px 15px 10px;
     margin-top: 10px;
-    /* margin-top: 10px; */
   }
   .box-size {
     max-width: 100%;
+  }
+  .title {
+    font-size: 40px;
+    margin: 0 5px 30px 5px;
   }
 }

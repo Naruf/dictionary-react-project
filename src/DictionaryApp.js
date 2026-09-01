@@ -8,13 +8,21 @@ export default function DictionaryApp() {
 
   function apiResponse(response) {
     setResults(response.data);
-    console.log(response.data);
   }
 
   function apiCall() {
-    // let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/hello`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${targetWord}&key=5d1t76143df0603191aa4604b0b5b1oe`;
-    axios.get(apiUrl).then(apiResponse);
+    axios
+      .get(apiUrl)
+      .then(apiResponse)
+      .catch(function (error) {
+        if (error.response && error.response.status === 404) {
+          alert("The word is not valid");
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+        setResults("");
+      });
   }
 
   function handleSubmit(event) {
@@ -41,7 +49,7 @@ export default function DictionaryApp() {
           <div className="col-12">
             <div className="search-block ">
               <input
-                className="search-input p-3 w-100 rounded"
+                className=" input-size w-100 search-input p-3 rounded border"
                 onChange={handleChange}
                 placeholder="Enter a word o phrase..."
                 required
@@ -58,48 +66,6 @@ export default function DictionaryApp() {
       <section>
         <ApiResults results={results} />
       </section>
-
-      {/* <section>
-        <div className="gallery box-size d-flex m-auto p-4 mt-2 mb-2 border rounded border-none shadow bg-light ">
-          <div className="photos gap-3 m-auto image-fluid d-sm-flex">
-            <div className="photo p-2">
-              <img
-                src="https://www.muebleslluesma.com/340563-large_default/mesa-goltay-doos.jpg"
-                alt=""
-                width="150px"
-              />
-            </div>
-            <div className="photo p-2">
-              <img
-                src="https://www.muebleslluesma.com/340563-large_default/mesa-goltay-doos.jpg"
-                alt=""
-                width="150px"
-              />
-            </div>
-            <div className="photo p-2">
-              <img
-                src="https://www.muebleslluesma.com/340563-large_default/mesa-goltay-doos.jpg"
-                alt=""
-                width="150px"
-              />
-            </div>
-            <div className="photo p-2">
-              <img
-                src="https://www.muebleslluesma.com/340563-large_default/mesa-goltay-doos.jpg"
-                alt=""
-                width="150px"
-              />
-            </div>
-            <div className="photo p-2">
-              <img
-                src="https://www.muebleslluesma.com/340563-large_default/mesa-goltay-doos.jpg"
-                alt=""
-                width="150px"
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }
