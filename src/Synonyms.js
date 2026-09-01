@@ -13,7 +13,6 @@ export default function Synonyms({ synonyms }) {
               </span>
             );
           })}
-          .
         </span>
       </div>
     );

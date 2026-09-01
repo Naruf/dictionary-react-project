@@ -2,7 +2,7 @@ import React from "react";
 import Definitions from "./Definitions";
 
 export default function ApiResults({ results }) {
-  let meanings = results.meanings;
+  let meanings = results.meanings || [];
 
   if (results) {
     return (
@@ -13,12 +13,14 @@ export default function ApiResults({ results }) {
               <div className="word ps-2 fs-2 fw-semibold">{results.word}</div>
             </div>
             <div className="col-12">
-              <div className="phonetics p-2 ps-3">/{results.phonetic}/</div>
+              <div className="phonetics p-2 ps-3 pb-3 fw-medium text-secondary fs-5">
+                /{results.phonetic}/
+              </div>
             </div>
             <div className="col-12">
               <div className="audio p-2 ps-3">
                 <a
-                  className="text-decoration-none ps-2"
+                  className="text-decoration-none p-2 border bg-secondary-subtle rounded"
                   href={`https://dictionary.cambridge.org/pronunciation/english/${results.word}`}
                   target="_blank"
                   rel="noreferrer"
@@ -48,6 +50,6 @@ export default function ApiResults({ results }) {
       </div>
     );
   } else {
-    return null;
+    return;
   }
 }

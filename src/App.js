@@ -12,7 +12,7 @@ export default function App() {
           <h1 className="title ">Dictionary App</h1>
         </header>
         <main>
-          <DictionaryApp />
+          <DictionaryApp defaultWord="summer" />
         </main>
         <footer>
           <Footer />

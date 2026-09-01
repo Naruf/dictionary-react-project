@@ -7,7 +7,7 @@ export default function Definitions({ meaning }) {
     <div className="Definitions">
       <div className="definition fs-5 ">
         <span className="text-primary ">{meaning.partOfSpeech}.</span>{" "}
-        <span> - {meaning.definition}.</span>
+        <span> - {meaning.definition}</span>
       </div>
 
       <div className="examples">
