@@ -12,6 +12,7 @@ export default function DictionaryApp() {
   }
 
   function apiCall() {
+    // let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/hello`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${targetWord}&key=5d1t76143df0603191aa4604b0b5b1oe`;
     axios.get(apiUrl).then(apiResponse);
   }
@@ -40,7 +41,7 @@ export default function DictionaryApp() {
           <div className="col-12">
             <div className="search-block ">
               <input
-                className="search-input p-3 w-100 border rounded "
+                className="search-input p-3 w-100 rounded"
                 onChange={handleChange}
                 placeholder="Enter a word o phrase..."
                 required

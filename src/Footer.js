@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <div className="Footer ">
+    <div className="Footer p-4">
       This app was coded by{" "}
       <a
         className="Footer-link"

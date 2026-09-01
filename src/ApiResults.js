@@ -25,7 +25,7 @@ export default function ApiResults({ results }) {
                 {meanings.map(function (meaning, index) {
                   return (
                     <div className="p-2" key={index}>
-                      <Definitions meaning={meaning} />
+                      <Definitions meaning={meaning} /> <br />
                     </div>
                   );
                 })}
