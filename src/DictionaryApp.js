@@ -6,10 +6,14 @@ export default function DictionaryApp({ defaultWord }) {
   let [targetWord, setTargetWord] = useState(defaultWord);
   let [results, setResults] = useState("");
   let [ready, setReady] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
   function apiResponse(response) {
-    console.log(response.data);
     setResults(response.data);
+  }
+
+  function handlePexelResponse(response) {
+    setPhotos(response.data.photos);
   }
 
   function apiCall() {
@@ -17,24 +21,36 @@ export default function DictionaryApp({ defaultWord }) {
     axios.get(apiUrl).then(apiResponse);
   }
 
+  function pexelApiCall() {
+    let pexelUrl = `https://api.pexels.com/v1/search?query=${targetWord}`;
+    let apiKey = "ezQZSfXIXCZ0UX7tmdodQvRndTBVW1V1X1swyiVdPTa0faGdHdVnkbm6";
+    axios
+      .get(pexelUrl, { headers: { Authorization: apiKey } })
+      .then(handlePexelResponse);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     apiCall();
+    pexelApiCall();
     document.activeElement.blur();
   }
 
   function handleChange(event) {
     setTargetWord(event.target.value);
   }
+
   function load() {
     setReady(true);
     apiCall();
+    pexelApiCall();
   }
+
   if (ready) {
     return (
       <div className="DictionaryApp">
         <form
-          className="box-size d-flex m-auto p-4 pb-2 border rounded border-none shadow bg-light text-start"
+          className="box-size d-flex m-auto p-4 pb-1 border rounded border-none shadow bg-light text-start"
           onSubmit={handleSubmit}
         >
           <div className="row">
@@ -46,14 +62,13 @@ export default function DictionaryApp({ defaultWord }) {
             <div className="col-12">
               <div className="search-block ">
                 <input
-                  className=" input-size w-100 search-input p-3 rounded border shadow-sm"
+                  className="input-size w-100 search-input p-3 rounded border shadow-sm"
                   onChange={handleChange}
                   placeholder="Enter a word o phrase..."
                   required
                   type="search"
-                  autoFocus
                 />
-                <p className="search-example ps-2 ">
+                <p className="search-example ps-2 pt-3 ">
                   i.e. paris, wine, yoga, coding...
                 </p>
               </div>
@@ -62,7 +77,7 @@ export default function DictionaryApp({ defaultWord }) {
         </form>
 
         <section>
-          <ApiResults results={results} />
+          <ApiResults results={results} photos={photos} />
         </section>
       </div>
     );

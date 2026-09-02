@@ -14,7 +14,7 @@ export default function App() {
           </div>
         </header>
         <main>
-          <DictionaryApp defaultWord="summer" />
+          <DictionaryApp defaultWord="meaning" />
         </main>
         <footer>
           <Footer />

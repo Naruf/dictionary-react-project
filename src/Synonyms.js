@@ -9,7 +9,7 @@ export default function Synonyms({ synonyms }) {
           {synonyms.map(function (synonym, index) {
             return (
               <span key={index}>
-                <span>- {synonym}</span>
+                <span> - {synonym}</span>
               </span>
             );
           })}
