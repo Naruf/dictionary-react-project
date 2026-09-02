@@ -13,7 +13,7 @@ export default function Footer() {
       >
         Nadia Ruiz
       </a>
-      , is open-sourced in{" "}
+      , is open-sourced on{" "}
       <a
         className="Footer-link"
         href="https://github.com/Naruf/dictionary-react-project"
@@ -22,7 +22,7 @@ export default function Footer() {
       >
         Github
       </a>{" "}
-      and hosted in{" "}
+      and hosted on{" "}
       <a
         className="Footer-link"
         href="https://vercel.com/narufs-projects/dictionary-react-project"

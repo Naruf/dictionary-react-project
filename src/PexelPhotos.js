@@ -6,7 +6,7 @@ export default function PexelPhotos({ photos }) {
       <div className="PexelPhotos ">
         <img
           src={photos[0].src.landscape}
-          alt="word-image"
+          alt="search-image"
           className="rounded-3 border border-secondary-subtle shadow img-fluid m-sm-0 d-block m-auto "
           width="300px"
         />

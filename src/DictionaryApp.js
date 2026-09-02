@@ -9,7 +9,16 @@ export default function DictionaryApp({ defaultWord }) {
   let [photos, setPhotos] = useState(null);
 
   function apiResponse(response) {
+    if (!response.data || !response.data.word) {
+      handleApiError();
+      return;
+    }
     setResults(response.data);
+    pexelApiCall();
+  }
+
+  function handleApiError() {
+    alert("Sorry, that word wasn't found. Please try another one.");
   }
 
   function handlePexelResponse(response) {
@@ -18,7 +27,7 @@ export default function DictionaryApp({ defaultWord }) {
 
   function apiCall() {
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${targetWord}&key=5d1t76143df0603191aa4604b0b5b1oe`;
-    axios.get(apiUrl).then(apiResponse);
+    axios.get(apiUrl).then(apiResponse).catch(handleApiError);
   }
 
   function pexelApiCall() {
@@ -32,7 +41,7 @@ export default function DictionaryApp({ defaultWord }) {
   function handleSubmit(event) {
     event.preventDefault();
     apiCall();
-    pexelApiCall();
+
     document.activeElement.blur();
   }
 
