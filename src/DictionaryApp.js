@@ -18,7 +18,7 @@ export default function DictionaryApp({ defaultWord }) {
   }
 
   function handleApiError() {
-    alert("Sorry, that word wasn't found. Please try another one.");
+    alert("Sorry, that word was not found. Please, try another one.");
   }
 
   function handlePexelResponse(response) {
@@ -46,7 +46,7 @@ export default function DictionaryApp({ defaultWord }) {
   }
 
   function handleChange(event) {
-    setTargetWord(event.target.value);
+    setTargetWord(event.target.value.trim());
   }
 
   function load() {
