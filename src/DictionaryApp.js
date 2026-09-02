@@ -65,15 +65,15 @@ export default function DictionaryApp({ defaultWord }) {
           <div className="row">
             <div className="col-12">
               <label className="fs-4 fw-semibold pb-3 ps-2">
-                What word or phrase do you need help with?
+                Search below for the word that you need help with:
               </label>
             </div>
             <div className="col-12">
               <div className="search-block ">
                 <input
-                  className="input-size w-100 search-input p-3 rounded border shadow-sm"
+                  className="input-size w-100 search-input p-3 rounded border shadow-sm ps-4 fs-5"
                   onChange={handleChange}
-                  placeholder="Enter a word o phrase..."
+                  placeholder={defaultWord}
                   required
                   type="search"
                 />

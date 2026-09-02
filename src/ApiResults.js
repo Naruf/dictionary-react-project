@@ -10,7 +10,7 @@ export default function ApiResults({ results, photos }) {
       <div className="ApiResults">
         <section>
           <div className="word-block box-size d-sm-flex m-auto p-4 pt-sm-4 pb-5 pb-sm-4 mt-3 mb-3 border rounded border-none shadow bg-light text-start ">
-            <div className="row ps-lg-5 ps-3">
+            <div className="row ps-lg-5 ps-2">
               <div className="col-sm-6 col-12 ">
                 <div className="word ps-2 pb-2 fs-1 fw-semibold">
                   {results.word}
